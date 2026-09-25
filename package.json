@@ -1,11 +1,12 @@
 {
-  "name": "bernadinho",
+  "name": "advocacia-bernadini",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "description": "Site estático da Advocacia Bernardini & Associados",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "wrangler deploy"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "wrangler": "^4.141.0"
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "advocacia-bernadini",
+  "compatibility_date": "2026-09-25",
+  // Somente arquivos estáticos: sem "main", não há Worker com lógica de backend.
+  // O site fica na raiz; o que não deve ser publicado está listado em .assetsignore.
+  "assets": {
+    "directory": "."
+  }
+}

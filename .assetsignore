@@ -1,0 +1,29 @@
+# Arquivos que o Wrangler NÃO deve publicar como assets (sintaxe .gitignore).
+# Só devem ir para a Cloudflare: index.html, assets/, robots.txt e sitemap.xml.
+
+# Dependências e build
+node_modules
+.wrangler
+.git
+.gitignore
+
+# Configuração do projeto
+wrangler.jsonc
+package.json
+package-lock.json
+.vercelignore
+
+# Ferramentas de desenvolvimento
+.agents
+.claude
+.impeccable
+.playwright-mcp
+.mcp.json
+skills-lock.json
+
+# Rascunhos e capturas de tela
+prints
+foto1.png
+foto2.png
+foto3.png
+foto4.png

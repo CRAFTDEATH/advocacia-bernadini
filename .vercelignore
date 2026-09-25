@@ -1,0 +1,12 @@
+# Arquivos de desenvolvimento que não devem ser publicados (nem aparecer no Google).
+.agents
+.claude
+.impeccable
+.playwright-mcp
+.mcp.json
+skills-lock.json
+prints
+foto1.png
+foto2.png
+foto3.png
+foto4.png

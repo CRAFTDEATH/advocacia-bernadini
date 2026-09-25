@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://advocacia-bernadini.adriano1997r.workers.dev/sitemap.xml

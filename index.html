@@ -15,7 +15,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Advocacia Bernardini &amp; Associados">
 <meta property="og:title" content="Advocacia Bernardini &amp; Associados | Advogados em Ourinhos - SP">
-<meta property="og:description" content="Orientação jurídica com atenção a cada caso. Atendimento presencial em Ourinhos - SP e também por WhatsApp e e-mail.">
+<meta property="og:description" content="Orientação jurídica com atenção a cada caso. Atendimento presencial em Ourinhos - SP e também pelo WhatsApp.">
 <meta property="og:url" content="https://advocacia-bernadini.adriano1997r.workers.dev/">
 <meta property="og:image" content="https://advocacia-bernadini.adriano1997r.workers.dev/assets/fachada.jpg">
 <meta property="og:image:width" content="1072">
@@ -23,7 +23,7 @@
 <meta property="og:image:alt" content="Fachada do escritório Advocacia Bernardini &amp; Associados, com jardim e árvores em frente">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Advocacia Bernardini &amp; Associados | Advogados em Ourinhos - SP">
-<meta name="twitter:description" content="Orientação jurídica com atenção a cada caso. Atendimento presencial em Ourinhos - SP e também por WhatsApp e e-mail.">
+<meta name="twitter:description" content="Orientação jurídica com atenção a cada caso. Atendimento presencial em Ourinhos - SP e também pelo WhatsApp.">
 <meta name="twitter:image" content="https://advocacia-bernadini.adriano1997r.workers.dev/assets/fachada.jpg">
 <meta name="twitter:image:alt" content="Fachada do escritório Advocacia Bernardini &amp; Associados, com jardim e árvores em frente">
 
@@ -38,17 +38,16 @@
       "url": "https://advocacia-bernadini.adriano1997r.workers.dev/",
       "logo": "https://advocacia-bernadini.adriano1997r.workers.dev/assets/logo.png",
       "image": "https://advocacia-bernadini.adriano1997r.workers.dev/assets/fachada.jpg",
-      "telephone": "+55 14 99074-5849",
-      "email": "advocaciabernardini@gmail.com",
+      "telephone": "+55 14 99674-5848",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua Narciso Nicolosi, 677",
+        "streetAddress": "Rua Narciso Nicolosi, 677 - Nova Ourinhos",
         "addressLocality": "Ourinhos",
         "addressRegion": "SP",
+        "postalCode": "19906-465",
         "addressCountry": "BR"
       },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Ourinhos+SP",
-      "sameAs": ["https://instagram.com/advocaciabernardini"]
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465"
     },
     {
       "@type": "WebSite",
@@ -179,6 +178,16 @@
     .hero .actions .btn { width: 100%; justify-content: center; }
   }
 
+  /* Sobre nós: número de anos em destaque à esquerda, texto à direita */
+  .about { padding-block: clamp(72px, 9vw, 120px); border-top: 1px solid var(--line); }
+  .about .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
+  .about .years { font: 500 clamp(5rem, 11vw, 8.5rem)/0.9 var(--display); font-variant-numeric: lining-nums; color: var(--gold); }
+  .about .years-label { display: block; margin-top: 12px; font: 400 1.05rem/1.4 var(--sans); color: var(--muted); }
+  .about h2 { margin-bottom: 24px; }
+  .about p { color: var(--muted); font-size: 1.125rem; max-width: 60ch; }
+  .about p + p { margin-top: 16px; }
+  @media (max-width: 860px) { .about .wrap { grid-template-columns: 1fr; } }
+
   /* Áreas de atuação: lista simples em duas colunas, separada por filetes */
   .areas { padding-block: clamp(72px, 9vw, 120px); background: var(--bg-deep); }
   .areas .lead { margin-top: 16px; color: var(--muted); max-width: 56ch; }
@@ -270,12 +279,13 @@
     </a>
     <nav aria-label="Principal">
       <ul>
+        <li><a href="#sobre">Sobre nós</a></li>
         <li><a href="#areas">Áreas de atuação</a></li>
         <li><a href="#atendimento">Atendimento</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
+    <a class="btn btn-primary" href="https://wa.me/5514996745848" target="_blank" rel="noopener">
       <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Agendar consulta
     </a>
   </div>
@@ -291,7 +301,7 @@
         </h1>
         <p class="rise" style="--i:2">Atendimento próximo, linguagem clara e acompanhamento do início ao fim para você e sua família.</p>
         <div class="actions rise" style="--i:3">
-          <a class="btn btn-primary" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://wa.me/5514996745848" target="_blank" rel="noopener">
             <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Agendar consulta
           </a>
           <a class="btn btn-ghost" href="#areas">Áreas de atuação</a>
@@ -301,8 +311,19 @@
         <div class="frame">
           <img src="assets/fachada.jpg" alt="Fachada do escritório Advocacia Bernardini &amp; Associados, com jardim e árvores em frente" width="1072" height="715" fetchpriority="high">
         </div>
-        <figcaption><i class="ph ph-map-pin" aria-hidden="true"></i>Rua Narciso Nicolosi, 677, Ourinhos</figcaption>
+        <figcaption><i class="ph ph-map-pin" aria-hidden="true"></i>R. Narciso Nicolosi, 677 - Nova Ourinhos, Ourinhos - SP</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="about" id="sobre">
+    <div class="wrap">
+      <p class="years reveal">45+<span class="years-label">anos advogando</span></p>
+      <div class="reveal">
+        <h2>Sobre nós</h2>
+        <p>Nossa empresa está há mais de 45 anos advogando. Buscamos oferecer um serviço jurídico de qualidade, sempre em busca de atender as expectativas e necessidades de cada cliente.</p>
+        <p>Afinal, o nosso objetivo é alcançar resultados satisfatórios que possam reforçar a confiança e a fidelidade dos nossos clientes. Por isso, a Advocacia Bernardini &amp; Associados se esforça constantemente para se aprimorar.</p>
+      </div>
     </div>
   </section>
 
@@ -339,7 +360,7 @@
           <p>Contratos, cobranças e orientação jurídica para a rotina da sua empresa.</p>
         </li>
       </ul>
-      <p class="note">Sua questão não está na lista? Conte o que está acontecendo <a href="https://wa.me/5514990745849" target="_blank" rel="noopener">pelo WhatsApp</a>. Se não for a nossa área, indicamos o caminho.</p>
+      <p class="note">Sua questão não está na lista? Conte o que está acontecendo <a href="https://wa.me/5514996745848" target="_blank" rel="noopener">pelo WhatsApp</a>. Se não for a nossa área, indicamos o caminho.</p>
     </div>
   </section>
 
@@ -383,37 +404,28 @@
     </div>
   </section>
 
-  <!-- TODO: confirmar telefone e número do endereço (lidos de imagem em baixa resolução). -->
   <section class="contact" id="contato">
     <div class="wrap panel">
       <div>
         <h2 class="reveal">Fale conosco</h2>
-        <p>Atendemos presencialmente no escritório e também por WhatsApp e e-mail.</p>
+        <p>Atendemos presencialmente no escritório e também pelo WhatsApp.</p>
         <div class="channels">
-          <a class="channel" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
+          <a class="channel" href="https://wa.me/5514996745848" target="_blank" rel="noopener">
             <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
-            <span><small>WhatsApp e telefone</small><strong>(14) 99074-5849</strong></span>
+            <span><small>WhatsApp e telefone</small><strong>(14) 99674-5848</strong></span>
           </a>
-          <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Ourinhos+SP" target="_blank" rel="noopener">
+          <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465" target="_blank" rel="noopener">
             <i class="ph ph-map-pin" aria-hidden="true"></i>
-            <span><small>Endereço</small><strong>Rua Narciso Nicolosi, 677, Ourinhos - SP</strong></span>
-          </a>
-          <a class="channel" href="mailto:advocaciabernardini@gmail.com">
-            <i class="ph ph-envelope-simple" aria-hidden="true"></i>
-            <span><small>E-mail</small><strong>advocaciabernardini@gmail.com</strong></span>
-          </a>
-          <a class="channel" href="https://instagram.com/advocaciabernardini" target="_blank" rel="noopener">
-            <i class="ph ph-instagram-logo" aria-hidden="true"></i>
-            <span><small>Instagram</small><strong>@advocaciabernardini</strong></span>
+            <span><small>Endereço</small><strong>R. Narciso Nicolosi, 677 - Nova Ourinhos, Ourinhos - SP, 19906-465</strong></span>
           </a>
         </div>
       </div>
       <div class="map">
         <div class="map-frame">
-        <iframe src="https://www.google.com/maps?q=Rua+Narciso+Nicolosi,+677,+Ourinhos+-+SP&amp;hl=pt-BR&amp;z=17&amp;output=embed" title="Mapa com a localização do escritório Advocacia Bernardini &amp; Associados" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps?q=Rua+Narciso+Nicolosi,+677+-+Nova+Ourinhos,+Ourinhos+-+SP,+19906-465&amp;hl=pt-BR&amp;z=17&amp;output=embed" title="Mapa com a localização do escritório Advocacia Bernardini &amp; Associados" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
         <div class="map-links">
-          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Narciso+Nicolosi+677+Ourinhos+SP" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow" aria-hidden="true"></i>Como chegar</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow" aria-hidden="true"></i>Como chegar</a>
         </div>
       </div>
     </div>

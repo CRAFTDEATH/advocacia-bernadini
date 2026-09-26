@@ -47,7 +47,11 @@
         "postalCode": "19906-465",
         "addressCountry": "BR"
       },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465"
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "09:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00" }
+      ]
     },
     {
       "@type": "WebSite",
@@ -220,11 +224,18 @@
   .contact h2 + p { margin-top: 16px; color: var(--muted); max-width: 46ch; }
   .channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
   .channel { display: flex; gap: 16px; align-items: flex-start; padding: 22px; background: var(--surface); text-decoration: none; transition: transform 160ms var(--ease-out), background-color 200ms ease; }
-  .channel:active { transform: scale(0.98); }
-  @media (hover: hover) and (pointer: fine) { .channel:hover { background: #313C63; } }
+  a.channel:active { transform: scale(0.98); }
+  @media (hover: hover) and (pointer: fine) { a.channel:hover { background: #313C63; } }
   .channel i { font-size: 24px; color: var(--gold); margin-top: 2px; }
   .channel small { display: block; font-size: 13px; color: var(--muted); }
   .channel strong { display: block; font-weight: 500; overflow-wrap: anywhere; }
+  .nowrap { white-space: nowrap; }
+  /* Horário: cartão informativo (não é link), ocupa a linha inteira quando há duas colunas */
+  .channel.hours { grid-column: 1 / -1; }
+  .channel.hours > div { flex: 1; }
+  .hours dl { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 6px 24px; margin: 4px 0 0; }
+  .hours dt { font-weight: 500; }
+  .hours dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
   .contact .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
   .map { display: flex; flex-direction: column; }
   .map-frame { position: relative; flex: 1; min-height: 360px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
@@ -402,8 +413,19 @@
           </a>
           <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Nova+Ourinhos+Ourinhos+SP+19906-465" target="_blank" rel="noopener">
             <i class="ph ph-map-pin" aria-hidden="true"></i>
-            <span><small>Endereço</small><strong>R. Narciso Nicolosi, 677 - Nova Ourinhos, Ourinhos - SP, 19906-465</strong></span>
+            <span><small>Endereço</small><strong>R. Narciso Nicolosi, 677 - Nova Ourinhos, Ourinhos - SP, <span class="nowrap">19906-465</span></strong></span>
           </a>
+          <div class="channel hours">
+            <i class="ph ph-clock" aria-hidden="true"></i>
+            <div>
+              <small>Horário de atendimento</small>
+              <dl>
+                <dt>Segunda a quinta</dt><dd>9h às 19h</dd>
+                <dt>Sexta</dt><dd>9h às 17h</dd>
+                <dt>Sábado e domingo</dt><dd>Fechado</dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
       <div class="map">

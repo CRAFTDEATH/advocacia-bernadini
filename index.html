@@ -90,7 +90,6 @@
     --text: #E9EBF1;
     --muted: #AEB5C8;
     --gold: #B3A87D;
-    --gold-soft: rgb(179 168 125 / 0.14);
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
     --sans: "Geist", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
@@ -167,8 +166,6 @@
   .hero p { margin-top: 24px; font-size: 1.125rem; color: var(--muted); max-width: 46ch; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
   .hero-media { position: relative; margin: 0; }
-  .hero-media .outline { position: relative; isolation: isolate; }
-  .hero-media .outline::before { content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid var(--gold); z-index: -1; opacity: 0.5; }
   .hero-media .frame { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--bg-deep); }
   .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; filter: contrast(1.08) saturate(1.1) brightness(1.02); }
   .hero-media .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 70%, rgb(28 36 64 / 0.3)); pointer-events: none; }
@@ -182,40 +179,20 @@
     .hero .actions .btn { width: 100%; justify-content: center; }
   }
 
-  /* Áreas de atuação: bento assimétrico, 7 células para 7 conteúdos */
+  /* Áreas de atuação: lista simples em duas colunas, separada por filetes */
   .areas { padding-block: clamp(72px, 9vw, 120px); background: var(--bg-deep); }
-  .areas h2 { max-width: 18ch; }
   .areas .lead { margin-top: 16px; color: var(--muted); max-width: 56ch; }
-  .bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
-  .cell { background: var(--surface); padding: 28px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; }
-  .cell i { font-size: 30px; color: var(--gold); }
-  .cell h3 { margin-top: auto; }
-  .cell p { color: var(--muted); font-size: 15px; }
-  .cell.feature { grid-column: span 2; grid-row: span 2; background: var(--gold); color: var(--bg-deep); padding: 36px; }
-  .cell.feature i, .cell.feature p { color: rgb(28 36 64 / 0.78); }
-  .cell.feature i { font-size: 40px; }
-  .cell.feature h3 { font-size: clamp(2rem, 3vw, 2.6rem); }
-  .cell.feature p { font-size: 1.05rem; max-width: 36ch; }
-  .cell.wide { grid-column: span 2; background: linear-gradient(135deg, #313C63, var(--surface)); }
-  .cell.cta { grid-column: span 2; background: transparent; border: 1px solid var(--line); justify-content: space-between; }
-  .cell.cta h3 { margin-top: 0; }
-  .cell.cta .btn { align-self: flex-start; }
-  @media (max-width: 960px) {
-    .bento { grid-template-columns: repeat(2, 1fr); }
-    .cell.feature { grid-row: auto; }
-  }
-  @media (max-width: 600px) {
-    .bento { grid-template-columns: 1fr; }
-    .cell.feature, .cell.wide, .cell.cta { grid-column: auto; }
-    .cell { min-height: 0; }
-    .cell h3 { margin-top: 8px; }
-  }
+  .area-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(40px, 6vw, 96px); list-style: none; margin: 48px 0 0; padding: 0; }
+  .area-list li { padding-block: 28px; border-top: 1px solid var(--line); }
+  .area-list p { margin-top: 8px; color: var(--muted); max-width: 44ch; }
+  .areas .note { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--muted); }
+  .areas .note a { color: var(--gold); text-underline-offset: 4px; }
+  @media (max-width: 700px) { .area-list { grid-template-columns: 1fr; } }
 
   /* Manifesto */
   .manifesto { padding-block: clamp(88px, 12vw, 160px); text-align: center; }
   .manifesto .mark { width: 72px; margin: 0 auto 32px; opacity: 0.9; }
   .manifesto blockquote { margin: 0 auto; max-width: 20ch; font: 500 clamp(2.4rem, 5.6vw, 4.6rem)/1.05 var(--display); text-wrap: balance; }
-  .manifesto blockquote em { color: var(--gold); }
   .manifesto p { margin: 28px auto 0; max-width: 48ch; color: var(--muted); font-size: 1.1rem; }
 
   /* Como funciona: título fixo à esquerda, passos à direita */
@@ -227,7 +204,7 @@
   .step { display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding-block: 36px; }
   .step + .step { border-top: 1px solid var(--line); }
   .step:first-child { padding-top: 8px; }
-  .step .icon { width: 56px; height: 56px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); font-size: 26px; }
+  .step .num { font: 500 2.6rem/1 var(--display); font-variant-numeric: lining-nums; color: var(--gold); }
   .step p { margin-top: 10px; color: var(--muted); max-width: 52ch; }
   @media (max-width: 860px) {
     .process .wrap { grid-template-columns: 1fr; }
@@ -276,7 +253,6 @@
   /* Movimento: entrada do hero em cascata e revelação ao rolar. Só transform e opacity. */
   @media (prefers-reduced-motion: no-preference) {
     .js .rise { opacity: 0; transform: translateY(14px); animation: rise 700ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
-    .js .hero-media.rise { transform: translateY(20px) scale(0.985); animation-duration: 900ms; }
     @keyframes rise { to { opacity: 1; transform: none; } }
 
     .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
@@ -321,11 +297,9 @@
           <a class="btn btn-ghost" href="#areas">Áreas de atuação</a>
         </div>
       </div>
-      <figure class="hero-media rise" style="--i:2">
-        <div class="outline">
-          <div class="frame">
-            <img src="assets/fachada.jpg" alt="Fachada do escritório Advocacia Bernardini &amp; Associados, com jardim e árvores em frente" width="1072" height="715" fetchpriority="high">
-          </div>
+      <figure class="hero-media">
+        <div class="frame">
+          <img src="assets/fachada.jpg" alt="Fachada do escritório Advocacia Bernardini &amp; Associados, com jardim e árvores em frente" width="1072" height="715" fetchpriority="high">
         </div>
         <figcaption><i class="ph ph-map-pin" aria-hidden="true"></i>Rua Narciso Nicolosi, 677, Ourinhos</figcaption>
       </figure>
@@ -335,55 +309,45 @@
   <!-- TODO: confirmar com o escritório as áreas em que realmente atua. -->
   <section class="areas" id="areas">
     <div class="wrap">
-      <h2 class="reveal">Áreas de atuação</h2>
-      <p class="lead reveal">Atuamos nas questões que mais aparecem no dia a dia das pessoas e das empresas da região.</p>
-      <div class="bento">
-        <article class="cell feature reveal">
-          <i class="ph ph-users-three" aria-hidden="true"></i>
+      <div class="reveal">
+        <h2>Áreas de atuação</h2>
+        <p class="lead">Atuamos nas questões que mais aparecem no dia a dia das pessoas e das empresas da região.</p>
+      </div>
+      <ul class="area-list reveal">
+        <li>
           <h3>Família e Sucessões</h3>
           <p>Divórcio, guarda, pensão alimentícia, inventário e testamento, conduzidos com cuidado e discrição.</p>
-        </article>
-        <article class="cell reveal" style="--i:1">
-          <i class="ph ph-scales" aria-hidden="true"></i>
+        </li>
+        <li>
           <h3>Direito Civil</h3>
           <p>Contratos, indenizações, cobranças e questões de imóveis.</p>
-        </article>
-        <article class="cell reveal" style="--i:2">
-          <i class="ph ph-briefcase" aria-hidden="true"></i>
+        </li>
+        <li>
           <h3>Trabalhista</h3>
           <p>Rescisões, horas extras e acidentes de trabalho.</p>
-        </article>
-        <article class="cell reveal" style="--i:1">
-          <i class="ph ph-hand-heart" aria-hidden="true"></i>
+        </li>
+        <li>
           <h3>Previdenciário</h3>
           <p>Aposentadorias, auxílios e revisão de benefícios do INSS.</p>
-        </article>
-        <article class="cell reveal" style="--i:2">
-          <i class="ph ph-shopping-bag" aria-hidden="true"></i>
+        </li>
+        <li>
           <h3>Consumidor</h3>
           <p>Cobranças indevidas, negativação e problemas com produtos e serviços.</p>
-        </article>
-        <article class="cell wide reveal">
-          <i class="ph ph-buildings" aria-hidden="true"></i>
+        </li>
+        <li>
           <h3>Empresarial</h3>
           <p>Contratos, cobranças e orientação jurídica para a rotina da sua empresa.</p>
-        </article>
-        <article class="cell cta reveal" style="--i:1">
-          <h3>Sua questão não está na lista?</h3>
-          <p>Conte o que está acontecendo. Se não for a nossa área, indicamos o caminho.</p>
-          <a class="btn btn-ghost" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
-            <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Agendar consulta
-          </a>
-        </article>
-      </div>
+        </li>
+      </ul>
+      <p class="note">Sua questão não está na lista? Conte o que está acontecendo <a href="https://wa.me/5514990745849" target="_blank" rel="noopener">pelo WhatsApp</a>. Se não for a nossa área, indicamos o caminho.</p>
     </div>
   </section>
 
   <section class="manifesto">
     <div class="wrap">
-      <img class="mark reveal" src="assets/marca.png" alt="" width="72" height="69" loading="lazy" decoding="async">
-      <blockquote class="reveal">Consulte sempre um <em>advogado.</em></blockquote>
-      <p class="reveal" style="--i:1">Uma conversa antes de assinar, decidir ou responder evita problemas que depois custam caro para resolver.</p>
+      <img class="mark" src="assets/marca.png" alt="" width="72" height="69" loading="lazy" decoding="async">
+      <blockquote class="reveal">Consulte sempre um advogado.</blockquote>
+      <p>Uma conversa antes de assinar, decidir ou responder evita problemas que depois custam caro para resolver.</p>
     </div>
   </section>
 
@@ -391,25 +355,25 @@
     <div class="wrap">
       <div class="intro">
         <h2 class="reveal">Como funciona o atendimento</h2>
-        <p class="reveal" style="--i:1">Você sabe o que está acontecendo com o seu caso em cada etapa.</p>
+        <p>Você sabe o que está acontecendo com o seu caso em cada etapa.</p>
       </div>
-      <ol class="steps">
-        <li class="step reveal">
-          <span class="icon"><i class="ph ph-chats-circle" aria-hidden="true"></i></span>
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="num" aria-hidden="true">1</span>
           <div>
             <h3>Conversa inicial</h3>
             <p>Você conta a situação. Ouvimos com atenção e explicamos quais são as opções.</p>
           </div>
         </li>
-        <li class="step reveal">
-          <span class="icon"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></span>
+        <li class="step">
+          <span class="num" aria-hidden="true">2</span>
           <div>
             <h3>Análise do caso</h3>
             <p>Estudamos documentos e prazos e indicamos o caminho mais seguro, com clareza sobre riscos e custos.</p>
           </div>
         </li>
-        <li class="step reveal">
-          <span class="icon"><i class="ph ph-path" aria-hidden="true"></i></span>
+        <li class="step">
+          <span class="num" aria-hidden="true">3</span>
           <div>
             <h3>Acompanhamento</h3>
             <p>Você recebe notícias de cada etapa, em linguagem simples, até a conclusão.</p>
@@ -424,27 +388,27 @@
     <div class="wrap panel">
       <div>
         <h2 class="reveal">Fale conosco</h2>
-        <p class="reveal" style="--i:1">Atendemos presencialmente no escritório e também por WhatsApp e e-mail.</p>
+        <p>Atendemos presencialmente no escritório e também por WhatsApp e e-mail.</p>
         <div class="channels">
-          <a class="channel reveal" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
+          <a class="channel" href="https://wa.me/5514990745849" target="_blank" rel="noopener">
             <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
             <span><small>WhatsApp e telefone</small><strong>(14) 99074-5849</strong></span>
           </a>
-          <a class="channel reveal" style="--i:1" href="https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Ourinhos+SP" target="_blank" rel="noopener">
+          <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Rua+Narciso+Nicolosi+677+Ourinhos+SP" target="_blank" rel="noopener">
             <i class="ph ph-map-pin" aria-hidden="true"></i>
             <span><small>Endereço</small><strong>Rua Narciso Nicolosi, 677, Ourinhos - SP</strong></span>
           </a>
-          <a class="channel reveal" href="mailto:advocaciabernardini@gmail.com">
+          <a class="channel" href="mailto:advocaciabernardini@gmail.com">
             <i class="ph ph-envelope-simple" aria-hidden="true"></i>
             <span><small>E-mail</small><strong>advocaciabernardini@gmail.com</strong></span>
           </a>
-          <a class="channel reveal" style="--i:1" href="https://instagram.com/advocaciabernardini" target="_blank" rel="noopener">
+          <a class="channel" href="https://instagram.com/advocaciabernardini" target="_blank" rel="noopener">
             <i class="ph ph-instagram-logo" aria-hidden="true"></i>
             <span><small>Instagram</small><strong>@advocaciabernardini</strong></span>
           </a>
         </div>
       </div>
-      <div class="map reveal" style="--i:2">
+      <div class="map">
         <div class="map-frame">
         <iframe src="https://www.google.com/maps?q=Rua+Narciso+Nicolosi,+677,+Ourinhos+-+SP&amp;hl=pt-BR&amp;z=17&amp;output=embed" title="Mapa com a localização do escritório Advocacia Bernardini &amp; Associados" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>

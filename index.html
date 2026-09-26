@@ -236,7 +236,7 @@
 
   /* Contato */
   .contact { padding-block: clamp(72px, 9vw, 120px); }
-  .contact .panel { display: grid; grid-template-columns: 1fr auto; gap: clamp(40px, 6vw, 96px); align-items: center; }
+  .contact .panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); align-items: stretch; }
   .contact h2 + p { margin-top: 16px; color: var(--muted); max-width: 46ch; }
   .channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
   .channel { display: flex; gap: 16px; align-items: flex-start; padding: 22px; background: var(--surface); text-decoration: none; transition: transform 160ms var(--ease-out), background-color 200ms ease; }
@@ -246,13 +246,26 @@
   .channel small { display: block; font-size: 13px; color: var(--muted); }
   .channel strong { display: block; font-weight: 500; overflow-wrap: anywhere; }
   .contact .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
-  .crest { width: 243px; }
-  .crest img { width: 243px; height: auto; }
+  .map { display: flex; flex-direction: column; }
+  .map-frame { position: relative; flex: 1; min-height: 360px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  /* Mapa padrão do Google é claro; escurece para combinar com o tema e volta ao normal no hover.
+     Em telas de toque (sem hover) fica sempre claro, para ser legível. */
+  @media (hover: hover) and (pointer: fine) {
+    .map-frame iframe { filter: invert(90%) hue-rotate(180deg) contrast(90%) saturate(0.8); transition: filter 350ms var(--ease-out); }
+    .map-frame:hover iframe, .map-frame:focus-within iframe { filter: invert(0) hue-rotate(0deg) contrast(1) saturate(1); }
+  }
+  @media (prefers-reduced-motion: reduce) { .map-frame iframe { transition: none; } }
+  @media (min-width: 861px) { .contact .channels { grid-template-columns: 1fr; } }
   @media (max-width: 860px) {
     .contact .panel { grid-template-columns: 1fr; }
-    .crest { display: none; }
+    .map-frame { flex: none; aspect-ratio: 4 / 3; min-height: 0; }
   }
   @media (max-width: 560px) { .channels { grid-template-columns: 1fr; } }
+  .map-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 16px; font-size: 15px; }
+  .map-links a { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); text-decoration: none; }
+  .map-links a i { font-size: 18px; }
+  @media (hover: hover) and (pointer: fine) { .map-links a:hover { text-decoration: underline; text-underline-offset: 4px; } }
 
   /* Rodapé */
   footer { padding-block: 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
@@ -431,8 +444,13 @@
           </a>
         </div>
       </div>
-      <div class="crest reveal" style="--i:2">
-        <img src="assets/logo.png" alt="Logotipo Advocacia Bernardini &amp; Associados" width="243" height="203" loading="lazy" decoding="async">
+      <div class="map reveal" style="--i:2">
+        <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Rua+Narciso+Nicolosi,+677,+Ourinhos+-+SP&amp;hl=pt-BR&amp;z=17&amp;output=embed" title="Mapa com a localização do escritório Advocacia Bernardini &amp; Associados" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="map-links">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Narciso+Nicolosi+677+Ourinhos+SP" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow" aria-hidden="true"></i>Como chegar</a>
+        </div>
       </div>
     </div>
   </section>

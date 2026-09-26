@@ -198,14 +198,8 @@
   .areas .note a { color: var(--gold); text-underline-offset: 4px; }
   @media (max-width: 700px) { .area-list { grid-template-columns: 1fr; } }
 
-  /* Manifesto */
-  .manifesto { padding-block: clamp(88px, 12vw, 160px); text-align: center; }
-  .manifesto .mark { width: 72px; margin: 0 auto 32px; opacity: 0.9; }
-  .manifesto blockquote { margin: 0 auto; max-width: 20ch; font: 500 clamp(2.4rem, 5.6vw, 4.6rem)/1.05 var(--display); text-wrap: balance; }
-  .manifesto p { margin: 28px auto 0; max-width: 48ch; color: var(--muted); font-size: 1.1rem; }
-
   /* Como funciona: título fixo à esquerda, passos à direita */
-  .process { padding-block: clamp(72px, 9vw, 120px); background: var(--bg-deep); }
+  .process { padding-block: clamp(72px, 9vw, 120px); }
   .process .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
   .process .intro { position: sticky; top: 120px; }
   .process .intro p { margin-top: 20px; color: var(--muted); max-width: 38ch; }
@@ -221,7 +215,7 @@
   }
 
   /* Contato */
-  .contact { padding-block: clamp(72px, 9vw, 120px); }
+  .contact { padding-block: clamp(72px, 9vw, 120px); background: var(--bg-deep); }
   .contact .panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); align-items: stretch; }
   .contact h2 + p { margin-top: 16px; color: var(--muted); max-width: 46ch; }
   .channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
@@ -361,14 +355,6 @@
         </li>
       </ul>
       <p class="note">Sua questão não está na lista? Conte o que está acontecendo <a href="https://wa.me/5514996745848" target="_blank" rel="noopener">pelo WhatsApp</a>. Se não for a nossa área, indicamos o caminho.</p>
-    </div>
-  </section>
-
-  <section class="manifesto">
-    <div class="wrap">
-      <img class="mark" src="assets/marca.png" alt="" width="72" height="69" loading="lazy" decoding="async">
-      <blockquote class="reveal">Consulte sempre um advogado.</blockquote>
-      <p>Uma conversa antes de assinar, decidir ou responder evita problemas que depois custam caro para resolver.</p>
     </div>
   </section>
 

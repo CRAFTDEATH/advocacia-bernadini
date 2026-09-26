@@ -1,0 +1,4 @@
+# Cache dos arquivos estáticos na Cloudflare (Workers Static Assets).
+# 7 dias: evita baixar fontes e imagens de novo a cada visita, e uma foto trocada com o mesmo nome aparece em até uma semana.
+/assets/*
+  Cache-Control: public, max-age=604800

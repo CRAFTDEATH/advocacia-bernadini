@@ -1,5 +1,5 @@
 # Arquivos que o Wrangler NÃO deve publicar como assets (sintaxe .gitignore).
-# Só devem ir para a Cloudflare: index.html, assets/, robots.txt e sitemap.xml.
+# Só devem ir para a Cloudflare: index.html, assets/, robots.txt, sitemap.xml e _headers.
 
 # Dependências e build
 node_modules
@@ -28,3 +28,6 @@ foto2.png
 foto3.png
 foto4.png
 horarios.jpg
+
+# Original da fachada (2,5 MB); o site usa fachada.jpg e as versões .webp
+assets/fachada.png

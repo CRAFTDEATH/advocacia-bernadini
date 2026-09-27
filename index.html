@@ -276,14 +276,13 @@
   footer .social .ico { font-size: 22px; }
   @media (hover: hover) and (pointer: fine) { footer .social a:hover { color: var(--gold); } }
 
-  /* Movimento: entrada do hero em cascata e revelação ao rolar. Só transform e opacity. */
-  @media (prefers-reduced-motion: no-preference) {
-    .js .rise { opacity: 0; transform: translateY(14px); animation: rise 700ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
-    @keyframes rise { to { opacity: 1; transform: none; } }
+  /* Movimento: entrada do hero em cascata e revelação ao rolar. Só transform e opacity.
+     Roda para todos, inclusive com "reduzir movimento" ativo no sistema (escolha do cliente). */
+  .js .rise { opacity: 0; transform: translateY(14px); animation: rise 700ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
+  @keyframes rise { to { opacity: 1; transform: none; } }
 
-    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
-    .js .reveal.in { opacity: 1; transform: none; }
-  }
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
+  .js .reveal.in { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
